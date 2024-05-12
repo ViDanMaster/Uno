@@ -1,3 +1,5 @@
+package Types;
+
 public enum CardType {
     NUMBER,
     SKIP,
