@@ -116,8 +116,6 @@ public class UnoGame extends JFrame {
             unoButton.setEnabled(false);
             nextPlayer();
             playerPanels.forEach(PlayerPanel::updateHand);
-            System.out.println(deck.getDeckSize());
-            System.out.println(deck.getCards());
         });
 
         // UNO gomb eseménykezelője
@@ -128,6 +126,7 @@ public class UnoGame extends JFrame {
         // Gombok hozzáadása a panelhez
         buttonPanel.add(drawCardButton);
         buttonPanel.add(unoButton);
+        unoButton.setEnabled(false);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
         // Fő panel hozzáadása a keretablakhoz
@@ -416,8 +415,6 @@ public class UnoGame extends JFrame {
         deck.shuffleDeck(deck.getCards());
         discardPile.push(topDiscard);
         drawPilePanel.setCard(topDiscard);
-        System.out.println(deck.getDeckSize());
-        System.out.println(deck.getCards());
         if(deck.getDeckSize() == 0){
             JOptionPane.showMessageDialog(this, "A dobópakliban csak a legfelső kártya szerepel és a húzópakliban elfogyott a kártya! Nem tudsz húzni lapot.");
         }else{
@@ -430,7 +427,6 @@ public class UnoGame extends JFrame {
      */
     private void handleInitialCardEffect() {
         CardType cardType = lastDroppedCard.getCardType();
-        System.out.println(lastDroppedCard);
 
         switch (cardType) {
             case SKIP:
